@@ -25,7 +25,7 @@ public class Notificar extends javax.swing.JFrame {
     public AVL<Subdivision> CargarSubdivisiones() {
         AVL<Subdivision> SubdivisionesA = null;
         try {
-            FileInputStream Archivo = new FileInputStream("subdivisiones.txt");
+            FileInputStream Archivo = new FileInputStream("data\\subdivisiones.txt");
             ObjectInputStream O = new ObjectInputStream(Archivo);
             Object Lista = O.readObject();
             SubdivisionesA = (AVL<Subdivision>) Lista;
@@ -190,7 +190,7 @@ public class Notificar extends javax.swing.JFrame {
             } else {
                 TareasEnProgreso.Remove(Tarea1);
                 Subdiv.getTareasFinalizadas().Push(Tarea1);
-                Subdivisiones.GuardarAVL("subdivisiones.txt");
+                Subdivisiones.GuardarAVL("data\\subdivisiones.txt");
                 JOptionPane.showMessageDialog(this, "¡Estado de la tarea actualizado!");
             }
 

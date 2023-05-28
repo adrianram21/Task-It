@@ -7,38 +7,8 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         this.setLocationRelativeTo(null); 
-//
-//        BinaryMaxHeap Lista = new BinaryMaxHeap(10);
-//        BinaryMaxHeap Lista2 = new BinaryMaxHeap(10);
-//        BinaryMaxHeap Lista3 = new BinaryMaxHeap(10);
-//        
-//        AVL<Tarea> ListaP = new AVL();
-//        AVL<Tarea> Lista2P = new AVL();
-//        AVL<Tarea> Lista3P = new AVL();
-//        
-//        PilaListaEnlazada<Tarea> ListaF = new PilaListaEnlazada();
-//        PilaListaEnlazada<Tarea> Lista2F = new PilaListaEnlazada();
-//        PilaListaEnlazada<Tarea> Lista3F = new PilaListaEnlazada();     
-//
-//        Lista.Insert(new Tarea("Revisar los estados financieros de clientes.", 1, 2));
-//        ListaP.Insert(new Tarea("Asegurarse de que los registros contables de nuestros clientes coincidan.", 2, 2));
-//        ListaF.Push(new Tarea("Preparar y presentar declaraciones de impuestos.", 3, 9));
-//        
-//        Lista2.Insert(new Tarea("Realizar análisis detallados de los costos.", 4, 6));
-//        Lista2P.Insert(new Tarea("Preparar estados financieros.", 5, 3));
-//        Lista2F.Push(new Tarea("Revisar los procesos contables de clientes.", 6, 8));
-//        
-//        Lista3.Insert(new Tarea("Proporcionar asesoramiento fiscal.", 2, 1));
-//        Lista3P.Insert(new Tarea("Preparar nóminas precisas.", 8, 9));
-//        Lista3.Insert(new Tarea("Proporcionar servicios de contabilidad.", 9, 7));
-//        Lista3F.Push(new Tarea("Ayudar a nuestros clientes a planificar su futuro financiero.", 10, 4));
-//        
-//        AVL<Subdivision> Subdivisiones = new AVL<Subdivision>();
-//        Subdivisiones.Insert(new Subdivision("Recursos Humanos", Lista, ListaP, ListaF));
-//        Subdivisiones.Insert(new Subdivision("Burocracia", Lista2, Lista2P, Lista2F));
-//        Subdivisiones.Insert(new Subdivision("Recreacion", Lista3, Lista3P, Lista3F));
-//        Subdivisiones.GuardarAVL("subdivisiones.txt");
-//             
+
+             
 
     }
     

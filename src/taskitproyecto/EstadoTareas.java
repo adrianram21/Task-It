@@ -23,7 +23,7 @@ public class EstadoTareas extends javax.swing.JFrame {
     public AVL<Subdivision> CargarSubdivisiones(){
         AVL<Subdivision> SubdivisionesA = null;
             try{
-                FileInputStream Archivo = new FileInputStream("subdivisiones.txt");                
+                FileInputStream Archivo = new FileInputStream("data\\subdivisiones.txt");                
                 ObjectInputStream O = new ObjectInputStream(Archivo);            
                 Object Lista = O.readObject();          
                 SubdivisionesA = (AVL<Subdivision>) Lista;   

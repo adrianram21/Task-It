@@ -23,7 +23,7 @@ public class NuevaSubdivision extends javax.swing.JFrame {
     public AVL<Subdivision> CargarSubdivisiones() {
         AVL<Subdivision> SubdivisionesA = null;
         try {
-            FileInputStream Archivo = new FileInputStream("subdivisiones.txt");
+            FileInputStream Archivo = new FileInputStream("data\\subdivisiones.txt");
             ObjectInputStream O = new ObjectInputStream(Archivo);
             Object Lista = O.readObject();
             SubdivisionesA = (AVL<Subdivision>) Lista;
@@ -115,7 +115,7 @@ public class NuevaSubdivision extends javax.swing.JFrame {
         } else {
             Subdivision NSubdivision = new Subdivision(Subdivision, new BinaryMaxHeap(10), new AVL<Tarea>(), new PilaListaEnlazada<Tarea>());
             Subdivisiones.Insert(NSubdivision);
-            Subdivisiones.GuardarAVL("subdivisiones.txt");
+            Subdivisiones.GuardarAVL("data\\subdivisiones.txt");
             JOptionPane.showMessageDialog(this, "¡División agregada!");
         }
 

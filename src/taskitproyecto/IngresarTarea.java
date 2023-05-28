@@ -30,7 +30,7 @@ public class IngresarTarea extends javax.swing.JFrame {
     public int CargarContador(){
         int Contador = 0;
             try{
-                FileInputStream Archivo = new FileInputStream("Contador.txt");                
+                FileInputStream Archivo = new FileInputStream("data\\Contador.txt");                
                 ObjectInputStream O = new ObjectInputStream(Archivo);            
                 Object Numero = O.readObject();          
                 Contador = (Integer) Numero;   
@@ -49,7 +49,7 @@ public class IngresarTarea extends javax.swing.JFrame {
     
     public void GuardarContador(int Contador){
         try{
-            FileOutputStream Archivo = new FileOutputStream("Contador.txt");
+            FileOutputStream Archivo = new FileOutputStream("data\\Contador.txt");
             ObjectOutputStream O = new ObjectOutputStream(Archivo);            
             O.writeObject(Contador);
         }
@@ -64,7 +64,7 @@ public class IngresarTarea extends javax.swing.JFrame {
     public AVL<Subdivision> CargarSubdivisiones(){
         AVL<Subdivision> SubdivisionesA = null;
             try{
-                FileInputStream Archivo = new FileInputStream("subdivisiones.txt");                
+                FileInputStream Archivo = new FileInputStream("data\\subdivisiones.txt");                
                 ObjectInputStream O = new ObjectInputStream(Archivo);            
                 Object Lista = O.readObject();          
                 SubdivisionesA = (AVL<Subdivision>) Lista;   
@@ -216,7 +216,7 @@ public class IngresarTarea extends javax.swing.JFrame {
             GuardarContador(Contador);
 
             JOptionPane.showMessageDialog(this,"¡Tarea ingresada!");
-            Subdivisiones.GuardarAVL("subdivisiones.txt");
+            Subdivisiones.GuardarAVL("data\\subdivisiones.txt");
         }
         
         Main In = new Main();

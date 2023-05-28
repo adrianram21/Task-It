@@ -23,7 +23,7 @@ public class SolicitarTarea extends javax.swing.JFrame {
     public AVL<Subdivision> CargarSubdivisiones(){
         AVL<Subdivision> SubdivisionesA = null;
             try{
-                FileInputStream Archivo = new FileInputStream("subdivisiones.txt");                
+                FileInputStream Archivo = new FileInputStream("data\\subdivisiones.txt");                
                 ObjectInputStream O = new ObjectInputStream(Archivo);            
                 Object Lista = O.readObject();          
                 SubdivisionesA = (AVL<Subdivision>) Lista;   
@@ -178,7 +178,7 @@ public class SolicitarTarea extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(this,"Su nueva tarea es: " + Tarea.getInfoTarea() + "\nID: " + Tarea.getID());
             Sub.getTareasEnProgreso().Insert(Tarea);
-            Subdivisiones.GuardarAVL("subdivisiones.txt");
+            Subdivisiones.GuardarAVL("data\\subdivisiones.txt");
         }
         
         Main In = new Main();
