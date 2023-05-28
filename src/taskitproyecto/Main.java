@@ -8,8 +8,6 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); 
 
-             
-
     }
     
         
