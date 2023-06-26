@@ -1,5 +1,9 @@
 package Modelo;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 public class ListaEnlazadaConCola<T extends Comparable<T>> implements Serializable {
@@ -170,6 +174,18 @@ public T TopFront(){
             }
         }
       }
+      
+          public void GuardarListaEnlazadaConCola(String Doc) {
+        try {
+            FileOutputStream Archivo = new FileOutputStream(Doc);
+            ObjectOutputStream O = new ObjectOutputStream(Archivo);
+            O.writeObject(this);
+        } catch (FileNotFoundException ex) {
+
+        } catch (IOException ex) {
+
+        }
+    }
       
       public void AddAfter(int Indice, T Valor){
           if(this.Empty() == true){

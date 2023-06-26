@@ -1,6 +1,7 @@
 package Clases;
 
 import Modelo.*;
+
 import java.io.Serializable;
 
 public class Subdivision implements Comparable<Subdivision>, Serializable{
@@ -8,12 +9,14 @@ public class Subdivision implements Comparable<Subdivision>, Serializable{
     BinaryMaxHeap Tareas;
     AVL<Tarea> TareasEnProgreso;
     PilaListaEnlazada<Tarea> TareasFinalizadas;
+    Usuario lider;
     
-    public Subdivision(String Nombre, BinaryMaxHeap Tareas, AVL<Tarea> TareasEnProgreso, PilaListaEnlazada<Tarea> TareasFinalizadas){
+    public Subdivision(String Nombre, BinaryMaxHeap Tareas, AVL<Tarea> TareasEnProgreso, PilaListaEnlazada<Tarea> TareasFinalizadas, Usuario Lider){
         this.Nombre = Nombre;
         this.Tareas = Tareas;
         this.TareasEnProgreso = TareasEnProgreso;
         this.TareasFinalizadas = TareasFinalizadas;
+        this.lider=Lider;
     }
     
     public String getNombre(){
@@ -29,6 +32,10 @@ public class Subdivision implements Comparable<Subdivision>, Serializable{
         return this.TareasFinalizadas;
     }
     
+    public Usuario getLider(){
+        return this.lider;
+    }
+    
     public void setNombre(String Nombre){
         this.Nombre = Nombre;
     }
@@ -40,6 +47,10 @@ public class Subdivision implements Comparable<Subdivision>, Serializable{
     }
     public void setTareasFinalizadas(PilaListaEnlazada<Tarea> TareasFinalizadas){
         this.TareasFinalizadas = TareasFinalizadas;
+    }
+    
+    public void setLider(Usuario Lider){
+        this.lider = Lider;
     }
 
     public int compareTo(Subdivision x) {

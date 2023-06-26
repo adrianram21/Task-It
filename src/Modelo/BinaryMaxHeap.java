@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class BinaryMaxHeap implements Serializable {
 
-    public Tarea[] list;
-    public int capacity;
-    public int size;
+    private Tarea[] list;
+    private int capacity;
+    private int size;
 
     public BinaryMaxHeap(int cap) {
         capacity = cap;
@@ -28,7 +28,7 @@ public class BinaryMaxHeap implements Serializable {
     }
 
     public void SiftUp(int i) {
-        while (i > 0 && list[Parent(i)].getPrioridad()< list[i].getPrioridad()) {
+        while (i > 0 && list[Parent(i)].getPrioridad() < list[i].getPrioridad()) {
             Tarea temp = list[Parent(i)];
             list[Parent(i)] = list[i];
             list[i] = temp;
@@ -108,12 +108,36 @@ public class BinaryMaxHeap implements Serializable {
 
     public void Imprimir() {
         for (int i = 0; i < size; i++) {
-            System.out.println(list[i]);
+            System.out.println(list[i].getPrioridad());
         }
     }
 
     public Tarea GetMax() {
         return list[0];
+    }
+    
+    public Tarea[] getTarea(){
+        return this.list;
+    }
+    
+    public int getCapacidad(){
+        return this.capacity;
+    }
+    
+    public int getLongitud(){
+        return this.size;
+    }
+    
+    public void setTarea(Tarea[] Lista){
+        this.list = Lista;
+    }
+    
+    public void setCapacidad(int Capacidad){
+        this.capacity = Capacidad;
+    }
+    
+    public void setLongitud(int Longitud){
+        this.size = Longitud;
     }
 
 }

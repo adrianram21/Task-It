@@ -2,21 +2,25 @@ package taskitproyecto;
 
 import Clases.Subdivision;
 import Clases.Tarea;
+import Clases.Usuario;
 import Modelo.*;
+import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 public class Tabla extends javax.swing.JFrame {
-
+    
     public BinaryMaxHeap Cola;
     public AVL<Tarea> Lista;
     public PilaListaEnlazada<Tarea> Pila;
     private DefaultTableModel ModeloSinAsignar;
     private DefaultTableModel ModeloEnProceso;
     private DefaultTableModel ModeloFinalizado;
-
-    public Tabla(BinaryMaxHeap Cola, AVL<Tarea> Lista, PilaListaEnlazada<Tarea> Pila) {
+    Usuario Usuario;
+    
+    public Tabla(BinaryMaxHeap Cola, AVL<Tarea> Lista, PilaListaEnlazada<Tarea> Pila, Usuario Usuario) {
+        this.Usuario = Usuario;
         ModeloSinAsignar = new DefaultTableModel();
         ModeloEnProceso = new DefaultTableModel();
         ModeloFinalizado = new DefaultTableModel();
@@ -53,29 +57,29 @@ public class Tabla extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         SinAsignar = new javax.swing.JTable();
-        Retroceder = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         EnProceso = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         Finalizado = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        Atras = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Task It - Tablas");
+        setPreferredSize(new java.awt.Dimension(1500, 700));
+        setResizable(false);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setText("Sin asignar");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1500, 700));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setText("En proceso");
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel4.setText("Finalizado");
-
+        SinAsignar.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         SinAsignar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -95,24 +99,31 @@ public class Tabla extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        SinAsignar.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         SinAsignar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        SinAsignar.setPreferredSize(new java.awt.Dimension(500, 200));
         SinAsignar.setRowHeight(50);
-        SinAsignar.getTableHeader().setReorderingAllowed(false);
+        SinAsignar.setShowGrid(true);
+        SinAsignar.setShowHorizontalLines(true);
         jScrollPane5.setViewportView(SinAsignar);
         if (SinAsignar.getColumnModel().getColumnCount() > 0) {
-            SinAsignar.getColumnModel().getColumn(0).setResizable(false);
-            SinAsignar.getColumnModel().getColumn(0).setPreferredWidth(500);
             SinAsignar.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        Retroceder.setText("Atras");
-        Retroceder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RetrocederActionPerformed(evt);
-            }
-        });
+        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 480, 500));
 
+        jLabel2.setFont(new java.awt.Font("Leelawadee", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(191, 63, 63));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Sin asignar");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 480, 74));
+
+        jLabel3.setFont(new java.awt.Font("Leelawadee", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(191, 63, 63));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("En proceso");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 480, 74));
+
+        EnProceso.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         EnProceso.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -125,14 +136,16 @@ public class Tabla extends javax.swing.JFrame {
             }
         ));
         EnProceso.setRowHeight(50);
-        EnProceso.setRowSelectionAllowed(false);
+        EnProceso.setShowGrid(true);
+        EnProceso.setShowHorizontalLines(true);
         jScrollPane2.setViewportView(EnProceso);
         if (EnProceso.getColumnModel().getColumnCount() > 0) {
-            EnProceso.getColumnModel().getColumn(0).setResizable(false);
-            EnProceso.getColumnModel().getColumn(0).setPreferredWidth(500);
-            EnProceso.getColumnModel().getColumn(1).setResizable(false);
+            EnProceso.getColumnModel().getColumn(1).setPreferredWidth(20);
         }
 
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 480, 500));
+
+        Finalizado.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         Finalizado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -153,74 +166,85 @@ public class Tabla extends javax.swing.JFrame {
             }
         });
         Finalizado.setRowHeight(50);
+        Finalizado.setShowGrid(true);
+        Finalizado.setShowHorizontalLines(true);
         jScrollPane3.setViewportView(Finalizado);
-        if (Finalizado.getColumnModel().getColumnCount() > 0) {
-            Finalizado.getColumnModel().getColumn(0).setResizable(false);
-            Finalizado.getColumnModel().getColumn(0).setPreferredWidth(500);
-            Finalizado.getColumnModel().getColumn(1).setResizable(false);
-        }
+
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 90, 480, 500));
+
+        jLabel4.setFont(new java.awt.Font("Leelawadee", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(191, 63, 63));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Finalizado");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 10, 480, 74));
+
+        Atras.setBackground(new java.awt.Color(191, 63, 63));
+        Atras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Atras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AtrasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AtrasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AtrasMouseExited(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Atras");
+
+        javax.swing.GroupLayout AtrasLayout = new javax.swing.GroupLayout(Atras);
+        Atras.setLayout(AtrasLayout);
+        AtrasLayout.setHorizontalGroup(
+            AtrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+        );
+        AtrasLayout.setVerticalGroup(
+            AtrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AtrasLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 610, 190, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(jLabel2)
-                .addGap(209, 209, 209)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(124, 124, 124))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(451, 451, 451)
-                        .addComponent(Retroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jScrollPane2, jScrollPane3, jScrollPane5});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addComponent(Retroceder)
-                .addGap(47, 47, 47))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void RetrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetrocederActionPerformed
-        EstadoTareas Es = new EstadoTareas();
-        Es.setVisible(true);
+    private void AtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AtrasMouseClicked
+        Main Inicio = new Main(this.Usuario);
+        Inicio.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_RetrocederActionPerformed
+    }//GEN-LAST:event_AtrasMouseClicked
+
+    private void AtrasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AtrasMouseEntered
+        Atras.setBackground(new Color(170, 63, 63)); 
+    }//GEN-LAST:event_AtrasMouseEntered
+
+    private void AtrasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AtrasMouseExited
+        Atras.setBackground(new Color(191, 63, 63)); 
+    }//GEN-LAST:event_AtrasMouseExited
 
     public void RellenarSinAsignar(BinaryMaxHeap Cola) {
         ModeloSinAsignar.getDataVector().removeAllElements();
         SinAsignar.updateUI();
 
-        while (Cola.size != 0) {
+        while (Cola.getLongitud() != 0) {
             StaticArrayList SA;
             SA = new StaticArrayList(2);
             Tarea SinAsignar = Cola.ExtractMax();
@@ -272,13 +296,15 @@ public class Tabla extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Atras;
     private javax.swing.JTable EnProceso;
     private javax.swing.JTable Finalizado;
-    private javax.swing.JButton Retroceder;
     private javax.swing.JTable SinAsignar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
