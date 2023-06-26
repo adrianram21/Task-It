@@ -72,11 +72,12 @@ public class Tabla extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Task It - Tablas");
-        setPreferredSize(new java.awt.Dimension(1500, 700));
+        setPreferredSize(new java.awt.Dimension(1240, 700));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1500, 700));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1220, 700));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1240, 700));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         SinAsignar.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
@@ -103,25 +104,24 @@ public class Tabla extends javax.swing.JFrame {
         SinAsignar.setPreferredSize(new java.awt.Dimension(500, 200));
         SinAsignar.setRowHeight(50);
         SinAsignar.setShowGrid(true);
-        SinAsignar.setShowHorizontalLines(true);
         jScrollPane5.setViewportView(SinAsignar);
         if (SinAsignar.getColumnModel().getColumnCount() > 0) {
             SinAsignar.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 480, 500));
+        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 380, 500));
 
         jLabel2.setFont(new java.awt.Font("Leelawadee", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(191, 63, 63));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Sin asignar");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 480, 74));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 380, 74));
 
         jLabel3.setFont(new java.awt.Font("Leelawadee", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(191, 63, 63));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("En proceso");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 480, 74));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 380, 74));
 
         EnProceso.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         EnProceso.setModel(new javax.swing.table.DefaultTableModel(
@@ -137,13 +137,12 @@ public class Tabla extends javax.swing.JFrame {
         ));
         EnProceso.setRowHeight(50);
         EnProceso.setShowGrid(true);
-        EnProceso.setShowHorizontalLines(true);
         jScrollPane2.setViewportView(EnProceso);
         if (EnProceso.getColumnModel().getColumnCount() > 0) {
             EnProceso.getColumnModel().getColumn(1).setPreferredWidth(20);
         }
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 480, 500));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 380, 500));
 
         Finalizado.setFont(new java.awt.Font("Leelawadee", 0, 12)); // NOI18N
         Finalizado.setModel(new javax.swing.table.DefaultTableModel(
@@ -167,16 +166,15 @@ public class Tabla extends javax.swing.JFrame {
         });
         Finalizado.setRowHeight(50);
         Finalizado.setShowGrid(true);
-        Finalizado.setShowHorizontalLines(true);
         jScrollPane3.setViewportView(Finalizado);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 90, 480, 500));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 90, 400, 500));
 
         jLabel4.setFont(new java.awt.Font("Leelawadee", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(191, 63, 63));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Finalizado");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 10, 480, 74));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, 400, 74));
 
         Atras.setBackground(new java.awt.Color(191, 63, 63));
         Atras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -210,13 +208,15 @@ public class Tabla extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 610, 190, 40));
+        jPanel1.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 610, 190, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

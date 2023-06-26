@@ -20,7 +20,6 @@ public class LogIn extends javax.swing.JFrame {
         this.usuarios = CargarUsuarios();
         this.setLocationRelativeTo(null);
 
-
     }
 
 
